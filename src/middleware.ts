@@ -7,26 +7,6 @@ export function middleware(request: NextRequest) {
   const pcp = request.cookies.get('PCP')?.value;
   const session = request.cookies.get('session')?.value;
 
-  // ── Gate page (/): no cookie → show gate; PCP cookie → splash ──
-  if (pathname === '/') {
-    if (pcp) {
-      return NextResponse.redirect(new URL('/splash', request.url));
-    }
-    return NextResponse.next();
-  }
-
-  // ── Splash page: requires PCP cookie ──
-  if (pathname === '/splash') {
-    if (!pcp) {
-      return NextResponse.redirect(new URL('/', request.url));
-    }
-    // Already has session → skip splash, go straight to dashboard
-    if (session) {
-      return NextResponse.redirect(new URL('/dashboard', request.url));
-    }
-    return NextResponse.next();
-  }
-
   // ── Login page: requires PCP cookie ──
   if (pathname === '/login') {
     if (!pcp) {
@@ -61,5 +41,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/', '/splash', '/dashboard/:path*', '/login', '/register', '/restore'],
+  matcher: ['/dashboard/:path*', '/login', '/register', '/restore'],
 };
