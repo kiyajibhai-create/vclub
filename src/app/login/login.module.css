@@ -1,0 +1,45 @@
+.pageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.regBanner {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #d2d5d5;
+}
+
+.regBanner strong {
+  color: #7cfc00;
+}
+
+.captchaBox {
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #aed1b2;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.captchaBox canvas {
+  display: block;
+  border-radius: 8px;
+}
+
+.captchaBox:hover {
+  border-color: #2a9fd6;
+  box-shadow: 0 0 6px rgba(42, 159, 214, 0.4);
+}

@@ -1,0 +1,119 @@
+.infoBanner {
+  margin-bottom: 16px;
+  padding: 10px 16px;
+  background: #060606;
+  border: 1px solid #282828;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.checkerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .checkerGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputPanel, .resultsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.textarea {
+  width: 100%;
+  background: #000;
+  border: 1px solid #282828;
+  border-radius: 6px;
+  color: #adafae;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+  outline: none;
+  resize: vertical;
+  line-height: 1.6;
+  transition: border-color 0.2s;
+}
+
+.textarea:focus {
+  border-color: #2a9fd6;
+}
+
+.textarea::placeholder {
+  color: #333;
+}
+
+.checkBtn {
+  flex: 1;
+  padding: 8px 20px;
+  background: rgba(119,179,0,0.15);
+  border: 2px solid #77b300;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.checkBtn:hover:not(:disabled) {
+  background: rgba(119,179,0,0.5);
+}
+
+.checkBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.clearBtn {
+  padding: 8px 16px;
+  background: none;
+  border: 1px solid #555;
+  border-radius: 20px;
+  color: #555;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.clearBtn:hover {
+  border-color: #c00;
+  color: #c00;
+}
+
+.resultRow {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid #111;
+  font-size: 13px;
+  gap: 4px;
+  transition: background 0.1s;
+  flex-wrap: wrap;
+}
+
+.resultRow:hover {
+  background: #282828;
+}
+
+.live {
+  border-left: 3px solid #77b300;
+}
+
+.dead {
+  border-left: 3px solid #c00;
+}
+
+.unknown {
+  border-left: 3px solid #555;
+}

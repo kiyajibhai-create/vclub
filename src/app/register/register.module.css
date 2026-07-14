@@ -1,0 +1,207 @@
+.pageWrapper {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: #060606;
+  border: 1px solid #282828;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 28px;
+}
+
+.cardHeader {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 48px;
+  font-weight: 900;
+  color: #2a9fd6;
+  text-shadow: 0 0 20px rgba(42,159,214,0.6);
+}
+
+.logoTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 4px;
+  margin-left: 4px;
+}
+
+.tagline {
+  font-size: 12px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+.regBanner {
+  text-align: center;
+  font-size: 14px;
+  color: #adafae;
+  background: #282828;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+
+.regBanner strong {
+  color: #7cfc00;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field label {
+  font-size: 12px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block !important;
+}
+
+.field input {
+  border: 1px solid #aed1b2;
+  background: none;
+  border-radius: 5px;
+  color: #c8d2bf;
+  width: 100%;
+  height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 0 12px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input:focus {
+  border-color: #2a9fd6;
+  box-shadow: 0 0 0 2px rgba(42,159,214,0.2);
+}
+
+.field input::placeholder {
+  color: #555;
+  font-weight: 400;
+}
+
+.checkRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error {
+  color: #c00;
+  font-size: 13px;
+  text-align: center;
+  background: rgba(204,0,0,0.1);
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.submitBtn {
+  flex: 1;
+  border: 2px solid #7cfc00;
+  background: rgba(124,252,0,0.1);
+  border-radius: 18px;
+  color: #fff;
+  font-size: 15px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  transition: background 0.3s;
+}
+
+.submitBtn:hover {
+  background: rgba(124,252,0,0.7);
+  color: #000;
+}
+
+.cancelBtn {
+  flex: 1;
+  border: 2px solid #555;
+  background: rgba(85,85,85,0.1);
+  border-radius: 18px;
+  color: #adafae;
+  font-size: 15px !important;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.cancelBtn:hover {
+  background: rgba(85,85,85,0.5);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Success state */
+.successBox {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.successIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.successBox h3 {
+  color: #77b300;
+  margin-bottom: 12px;
+}
+
+.successBox p {
+  font-size: 14px;
+  color: #adafae;
+  margin-bottom: 20px;
+}
+
+.backBtn {
+  display: inline-block;
+  border: 2px solid #2a9fd6;
+  background: rgba(42,159,214,0.1);
+  border-radius: 18px;
+  color: #fff;
+  font-size: 14px !important;
+  padding: 8px 20px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.backBtn:hover {
+  background: rgba(42,159,214,0.6);
+  text-decoration: none;
+}
