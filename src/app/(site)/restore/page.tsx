@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../register/register.module.css';
 
+
 export default function RestorePage() {
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);

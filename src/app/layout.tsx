@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import './globals.css';
 
 export const metadata: Metadata = {
   title: 'VClub',
@@ -16,12 +15,8 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="utf-8" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Roboto:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
       </head>
-      <body className="text-center">
+      <body>
         {children}
       </body>
     </html>
