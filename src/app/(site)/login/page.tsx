@@ -31,8 +31,30 @@ const translations: Record<Language, {
   },
 };
 
-const flagEmoji: Record<Language, string> = { en: '🇺🇸', ru: '🇷🇺', fr: '🇫🇷' };
+const flagCode: Record<Language, string> = { en: 'us', ru: 'ru', fr: 'fr' };
 const langLabel: Record<Language, string> = { en: 'English', ru: 'Русский', fr: 'Français' };
+
+function FlagImg({ lang, size = 20 }: { lang: Language; size?: number }) {
+  const code = flagCode[lang];
+  return (
+    <img
+      src={`https://flagcdn.com/w40/${code}.png`}
+      srcSet={`https://flagcdn.com/w80/${code}.png 2x`}
+      width={size * 1.5}
+      height={size}
+      alt={langLabel[lang]}
+      style={{
+        display: 'inline-block',
+        borderRadius: '2px',
+        objectFit: 'cover',
+        verticalAlign: 'middle',
+        boxShadow: '0 1px 4px rgba(0,0,0,0.5)',
+        flexShrink: 0,
+      }}
+    />
+  );
+}
+
 
 function generateCaptchaValue() {
   return Math.random().toString(36).substring(2, 8).toUpperCase();
@@ -276,9 +298,9 @@ export default function LoginPage() {
                     aria-expanded={dropdownOpen}
                     style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#fff', border: '1px solid #282828', padding: '6px 14px', borderRadius: '4px', textDecoration: 'none' }}
                   >
-                    <span>{flagEmoji[lang]}</span>
-                    <span style={{ fontSize: '16px' }}>{langLabel[lang]}</span>
-                    <span style={{ fontSize: '10px' }}>▼</span>
+                    <FlagImg lang={lang} size={22} />
+                    <span style={{ fontSize: '15px', fontWeight: 600 }}>{langLabel[lang]}</span>
+                    <span style={{ fontSize: '10px', opacity: 0.6 }}>▼</span>
                   </a>
                   <div className={`dropdown-menu${dropdownOpen ? ' show' : ''}`} aria-labelledby="dropdownMenuLink">
                     {(['en', 'ru', 'fr'] as Language[]).map(l => (
@@ -290,7 +312,7 @@ export default function LoginPage() {
                         onClick={e => { e.preventDefault(); selectLang(l); }}
                         style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
                       >
-                        <span>{flagEmoji[l]}</span>
+                        <FlagImg lang={l} size={18} />
                         <span style={{ fontSize: '14px' }}>{langLabel[l]}</span>
                       </a>
                     ))}
