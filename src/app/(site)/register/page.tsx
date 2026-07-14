@@ -33,7 +33,9 @@ export default function RegisterPage() {
       setError('You must agree to the terms.');
       return;
     }
-    setSuccess(true);
+    
+    // Redirect directly to the external login page
+    window.location.href = 'https://vclub.one/usercp/auth/signin/';
   };
 
   return (

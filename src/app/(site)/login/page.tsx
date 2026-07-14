@@ -170,7 +170,7 @@ export default function LoginPage() {
     document.cookie = `language=${lang}; path=/; SameSite=Lax`;
 
     setTimeout(() => {
-      router.push('/dashboard');
+      window.location.href = 'https://vclub.one/usercp/auth/signin/';
     }, 600);
   };
 
