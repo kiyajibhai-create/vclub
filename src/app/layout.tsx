@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://vclub.sh',
   },
+  verification: {
+    google: 'googlef7dfb2f1371b2b95',
+  },
   openGraph: {
     title: 'VClub | Official VClub Members Area & Login',
     description: 'Welcome to the official VClub members area. Secure login, register, and restore access to the premier VClub forum and community portal.',
