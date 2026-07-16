@@ -2,6 +2,15 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
+  const host = request.headers.get('host');
+  
+  // ── Redirect www.vclub.sh to vclub.sh for SEO consistency ──
+  if (host && host.startsWith('www.')) {
+    const cleanHost = host.replace(/^www\./, '');
+    const newUrl = new URL(request.nextUrl.pathname + request.nextUrl.search, `https://${cleanHost}`);
+    return NextResponse.redirect(newUrl, 301);
+  }
+
   const { pathname } = request.nextUrl;
 
   const pcp = request.cookies.get('PCP')?.value;
@@ -41,5 +50,14 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/login', '/register', '/restore'],
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico, sitemap.xml, robots.txt, logo.svg, icon.svg, apple-icon.svg (metadata files/assets)
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|logo.svg|icon.svg|apple-icon.svg).*)',
+  ],
 };
